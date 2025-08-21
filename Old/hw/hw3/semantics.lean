@@ -62,7 +62,7 @@ def evalUnOp : UnOp → (Bool → Bool)
 def evalBinOp : BinOp → (Bool → Bool → Bool)
 | BinOp.and => Bool.and
 | BinOp.or => Bool.or
-| BinOp.imp => domain.imp   -- DMT1.lecture.propLogic.semantics.domain.imp
+| BinOp.imp => domain.imp   -- DMT1.lecture.propLogic.domain.imp
 | BinOp.iff => domain.iff  -- likewise
 
 /- @@@

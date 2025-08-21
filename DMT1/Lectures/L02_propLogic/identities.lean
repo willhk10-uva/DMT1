@@ -1,6 +1,6 @@
-import «DMT1».Lectures.L02_propLogic.formal.syntax
+import DMT1.Lectures.L02_propLogic.syntax
 
-namespace DMT1.lecture.propLogic
+namespace DMT1.lecture.propLogic.identities
 
 def P := {⟨0⟩}
 def Q := {⟨1⟩}
@@ -33,4 +33,4 @@ def distribOrAnd    := (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))
 def distribNotAnd   := ¬(P ∧ Q) ↔ (¬P ∨ ¬ Q)
 def distribNotOr    := ¬(P ∨ Q) ↔ (¬P ∧ ¬ Q)
 
-end DMT1.lecture.propLogic
+end DMT1.lecture.propLogic.identities

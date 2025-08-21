@@ -13,7 +13,7 @@ that expressiom. From this information a truth table can
 be assembed.
 @@@ -/
 
-import DMT1.Lectures.L02_propLogic.formal.interpretation
+import DMT1.Lectures.L02_propLogic.interpretation
 
 namespace DMT1.Lectures.propLogic.semantics.models
 open propLogic.syntax

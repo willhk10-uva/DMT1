@@ -1,4 +1,7 @@
 /- @@@
+
+<!-- toc -->
+
 # Semantics
 
 The idea of semantics in Propositional Logic is simple:
@@ -30,16 +33,16 @@ Boolean function that is the designated meaning of *op*.
 That's it!
 @@@ -/
 
-import DMT1.MyWork.hw3.syntax
-import DMT1.MyWork.hw3.domain
+import DMT1.Lectures.L02_propLogic.syntax
+import DMT1.Lectures.L02_propLogic.domain
 
-namespace DMT1.MyWork.hw3.semantics
-open DMT1.MyWork.hw3.syntax
+open DMT1.Lectures.L02_propLogic.syntax
+open DMT1.Lectures.L02_propLogic.domain
 
-
+namespace DMT1.Lectures.L02_propLogic.semantics
 
 /- @@@
-#### Fixed Interpretation of Unary Connectives
+## Fixed Interpretation of Unary Connectives
 
 The first thing we'll do is define what Boolean operators
 we mean by the names of our unary and binary "conenctives".
@@ -53,7 +56,7 @@ def evalUnOp : UnOp → (Bool → Bool)
 
 
 /- @@@
-#### Fixed Interpretation of Binary Connectives
+## Fixed Interpretation of Binary Connectives
 
 - takes a binary operator and returns corresponding *binary* Boolean function
 - (Bool → Bool → Bool) is the type of function that takes two Bools and returns one
@@ -62,10 +65,11 @@ def evalUnOp : UnOp → (Bool → Bool)
 def evalBinOp : BinOp → (Bool → Bool → Bool)
 | BinOp.and => Bool.and
 | BinOp.or => Bool.or
-| BinOp.imp => domain.imp   -- DMT1.lecture.propLogic.semantics.domain.imp
+| BinOp.imp => domain.imp   -- DMT1.lecture.propLogic.domain.imp
 | BinOp.iff => domain.iff  -- likewise
 
 /- @@@
+## Interpretations: Variable Semantics of Variable Expressions
 We've now understood that an "interpretation" can be understood
 to be and can at least here actually be *used* as a function that
 takes a variable (var) as an argument and that returns the Boolean
@@ -82,7 +86,7 @@ abbrev Interp := Var → Bool
 open Expr
 
 /- @@@
-#### Operational Semantics of Propositional Logic
+## Evaluation: Operational Semantics of Predicate Logic
 
 NB: This is the material you most need and want to grok.
 
@@ -104,6 +108,8 @@ def eval : Expr → Interp → Bool
 
 
 /- @@@
+## Standard Notation for Semantic Evaluation Operator
+
 The standard notation for (eval e i) is ⟦e⟧ᵢ, where ⟦⬝⟧
 is notation for the semantic evaluation function, eval.
 In Lean we'll write ⟦e⟧i, without *i* being a subscript.
@@ -118,4 +124,4 @@ a justifiably confident grasp of essentially every aspect
 of the syntax and semantics of propositional logic.
 @@@ -/
 
-end DMT1.MyWork.hw3.semantics
+end DMT1.Lectures.L02_propLogic.semantics

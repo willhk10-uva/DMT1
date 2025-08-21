@@ -24,7 +24,7 @@ The two elements we'll need that Lean doesn't define
 natively are definitions of *implies* and *equivalentTo*.
 -/
 
-namespace DMT1.Lectures.propLogic.semantics.domain
+namespace DMT1.Lectures.L02_propLogic.domain
 
 /-
 ## Lean's Boolean Algebra Definitions
@@ -111,4 +111,4 @@ elements: of constants and variables and of the syntactic
 operators, such as ∧ (mapping to &&).
 @@@-/
 
-end DMT1.Lectures.propLogic.semantics.domain
+end DMT1.Lectures.L02_propLogic.domain

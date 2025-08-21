@@ -3,8 +3,6 @@
 
 <!-- toc -->
 
-
-
 The material in this chapter depends on our specification
 of the syntax of propositional logic. We enclose these
 definitions in a namespace, DMT1.lecture.propLogic.axioms,
@@ -14,11 +12,12 @@ the specification of the syntax itself (Expr), so as to be
 able to use them here without prefixes.
 @@@ -/
 
-import DMT1.Lectures.L02_propLogic.formal.syntax
+import DMT1.Lectures.L02_propLogic.syntax
 
-namespace DMT1.Lectures.propLogic.axioms
+open DMT1.Lectures.L02_propLogic.syntax
 
-open propLogic.syntax
+namespace DMT1.Lectures.L02_propLogic.axioms
+
 
 open Expr
 
@@ -91,4 +90,4 @@ as good examples of expressions we can write now using
 the syntax we've defined.
 @@@ -/
 
-end DMT1.Lectures.propLogic.axioms
+end DMT1.Lectures.L02_propLogic.axioms

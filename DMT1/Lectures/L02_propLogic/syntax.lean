@@ -7,8 +7,7 @@ syntax propositional logic.
 <!-- toc -->
 @@@ -/
 
-namespace DMT1.Lectures.propLogic.syntax
-
+namespace DMT1.Lectures.L02_propLogic.syntax
 
 
 /- @@@
@@ -258,4 +257,4 @@ interpretations of these variables as unvaryingly either
 true or false.
 @@@ -/
 
-end DMT1.Lectures.propLogic.syntax
+end DMT1.Lectures.L02_propLogic.syntax

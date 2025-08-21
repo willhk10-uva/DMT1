@@ -1,6 +1,6 @@
 -- TODO: Fix imports to come from Lectures
-import DMT1.Lectures.L02_propLogic.formal.syntax
-import DMT1.Lectures.L02_propLogic.formal.semantics
+import DMT1.Lectures.L02_propLogic.syntax
+import DMT1.Lectures.L02_propLogic.semantics
 import DMT1.Lectures.L03_modelTheory.properties
 
 namespace DMT1.Lectures.propLogic.syntax

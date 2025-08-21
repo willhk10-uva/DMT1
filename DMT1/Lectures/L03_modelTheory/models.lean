@@ -14,7 +14,7 @@ now present the concepts of models and counter-examples.
 import DMT1.Lectures.L03_modelTheory.truthTable
 
 namespace DMT1.Lectures.propLogic.semantics.models
-open propLogic.syntax
+open DMT1.Lectures.propLogic.syntax
 
 /- @@@
 Given a proposition (Expr), *e*, and an interpretation for

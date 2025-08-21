@@ -1,0 +1,10 @@
+name = "DMT1"
+version = "0.1.0"
+defaultTargets = ["dmt1"]
+
+[[lean_lib]]
+name = "DMT1"
+
+[[lean_exe]]
+name = "dmt1"
+root = "Main"

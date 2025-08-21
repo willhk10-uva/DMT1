@@ -1,9 +1,9 @@
-import DMT1.Lectures.L02_propLogic.formal.model_theory.properties
-import DMT1.Lectures.L02_propLogic.formal.model_theory.truthTable
-import DMT1.Lectures.L02_propLogic.formal.model_theory.counterexamples
-import DMT1.Lectures.L02_propLogic.formal.interpretation
-import DMT1.Lectures.L02_propLogic.formal.semantics
-import DMT1.Lectures.L02_propLogic.formal.syntax
+import DMT1.Lectures.L02_propLogic.model_theory.properties
+import DMT1.Lectures.L02_propLogic.model_theory.truthTable
+import DMT1.Lectures.L02_propLogic.model_theory.counterexamples
+import DMT1.Lectures.L02_propLogic.interpretation
+import DMT1.Lectures.L02_propLogic.semantics
+import DMT1.Lectures.L02_propLogic.syntax
 
 namespace DMT1.lecture.propLogic
 

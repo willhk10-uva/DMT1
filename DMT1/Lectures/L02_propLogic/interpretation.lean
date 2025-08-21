@@ -4,13 +4,14 @@
 <!-- toc -->
 @@@ -/
 
-import DMT1.Lectures.L02_propLogic.formal.utilities
-import DMT1.Lectures.L02_propLogic.formal.semantics
+import DMT1.Lectures.L02_propLogic.utilities
+import DMT1.Lectures.L02_propLogic.semantics
 
 namespace DMT1.Lectures.propLogic.semantics
 
-open propLogic.syntax
-open propLogic.utilities
+open DMT1.Lectures.L02_propLogic.syntax
+open DMT1.Lectures.L02_propLogic.semantics
+open DMT1.Lectures.L02_propLogic.utilities
 
 /- @@@
 An interpretation, *i*, in predicate logic is a function
