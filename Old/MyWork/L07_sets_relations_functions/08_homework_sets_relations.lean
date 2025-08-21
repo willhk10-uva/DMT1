@@ -1,4 +1,4 @@
-import DMT1.Lectures.«L07_sets_relations_functions».«L03_properties_of_relations»
+import DMT.«L07_sets_relations_functions».«L03_properties_of_relations»
 
 /-
 Homework #8 Properties of Relations.

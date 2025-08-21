@@ -1,11 +1,18 @@
-import DMT.L09_classes.C02_groupActions
+import DMT.L09_algebra.C02_groupActions
 import Mathlib.Algebra.AddTorsor.Defs
 
 /- @@@
-# Torsors
+<!-- toc -->
+
+# Torsors Over Groups
+
+NB: This chapter is currently formatted as a
+homework assignment, with many blanks left to
+fill in.
 @@@ -/
 
 namespace DMT1.Lecture.classes.torsors
+
 open DMT1.Lecture.classes.groupActions
 open DMT1.Lecture.classes.groups
 
@@ -31,12 +38,13 @@ is given by the `-ᵥ` operation. In the case where G is
 a *vector space*, a torsor becomes an *affine* space.
 
 ```lean
-class AddTorsor (G : outParam Type*) (P : Type*) [AddGroup G] extends AddAction G P, VSub G P where
+class AddTorsor (G : outParam Type*) (P : Type*) [AddGroup G] extends AddAction G P,
+  VSub G P where
   [nonempty : Nonempty P]
-  vsub_vadd' : ∀ p₁ p₂ : P, (p₁ -ᵥ p₂ : G) +ᵥ p₂ = p₁
-  vadd_vsub' : ∀ (g : G) (p : P), (g +ᵥ p) -ᵥ p = g
   /-- Torsor subtraction and addition with the same element cancels out. -/
+  vsub_vadd' : ∀ p₁ p₂ : P, (p₁ -ᵥ p₂ : G) +ᵥ p₂ = p₁
   /-- Torsor addition and subtraction with the same element cancels out. -/
+  vadd_vsub' : ∀ (g : G) (p : P), (g +ᵥ p) -ᵥ p = g
 ```
 
 Let's take that apart and see what we're missing.
@@ -77,25 +85,17 @@ got you from *p* to *g +ᵥ p*. The algebra makes sense.
 @@@ -/
 
 -- EXERCISE: Define point-point subtraction for Rot, Tri
+open Rot
+
 
 def rotTriVSub : Tri → Tri → Rot
 -- define p1 - p2
-| Tri.o0, Tri.o0 => Rot.r0
-| Tri.o0, Tri.o120 => Rot.r240
-| Tri.o0, Tri.o240 => Rot.r120
-| Tri.o120, Tri.o0 => Rot.r120
-| Tri.o120, Tri.o120 => Rot.r0
-| Tri.o120, Tri.o240 => Rot.r240
-| Tri.o240, Tri.o0 => Rot.r240
-| Tri.o240, Tri.o120 => Rot.r120
-| Tri.o240, Tri.o240 => Rot.r0
+| _, _ => sorry
 
 -- EXERCISE: Instantiate the VSub class for Rot and Tri
 
 instance : VSub Rot Tri :=
-{
-  vsub := rotTriVSub
-}
+sorry
 
 -- Exercise: Instantiate NonEmpty for Tri.
 
@@ -107,46 +107,26 @@ class inductive Nonempty (α : Sort u) : Prop where
 @@@ -/
 
 theorem nonemptyTri: Nonempty Tri :=
-by
-  exact Nonempty.intro Tri.o0
-
+sorry
 
 -- EXERCISE: Prove the first torsor law.
 
 theorem law1 : ∀ p₁ p₂ : Tri, (p₁ -ᵥ p₂ : Rot) +ᵥ p₂ = p₁ :=
-by
-  intro p₁ p₂
-  cases p₁
-  repeat
-  {
-    cases p₂
-    repeat rfl
-  }
+sorry
 
 
--- Exercise: Prove the second torsor law.
+-- Exercise: State and prove the second law for Rot and Tri.
 
-theorem law2 : ∀ (g : Rot) (p : Tri), (g +ᵥ p) -ᵥ p = g :=
-by
-  intro g p
-  cases g
-  repeat
-    {
-      cases p
-      repeat rfl
-    }
+-- Here
 
 
 -- EXERCISE: Instantiate AddTorsor for Rot and Tri
 
-instance : AddTorsor Rot Tri :=
-{
-  nonempty := nonemptyTri
-  vsub_vadd' := law1
-  vadd_vsub' := law2
-}
+-- HERE
 
--- EXERCISE: TEST CASES
--- STUDENT ANSWERS WOULD BE HERE
+-- EXERCISE: Write test cases for all operations
+
+#check AddGroup
+#check AddMonoid
 
 end DMT1.Lecture.classes.torsors

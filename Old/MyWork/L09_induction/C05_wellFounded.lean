@@ -3,14 +3,14 @@ import Mathlib.Data.Set.Basic
 import Mathlib.Logic.Relation
 import Mathlib.Data.Real.Basic
 
-import DMT1.Lectures.L08_setsRelationsFunctions.C04_propertiesOfRelations
+import DMT.L08_setsRelationsFunctions.C04_propertiesOfRelations
 
 /- @@@
 We've now imported the properties of relation defined in
 propertiesOfRelations.
 @@@ -/
 
-namespace DMT1.Lectures.setsRelationsFunctions.wellFounded
+namespace DMT.setsRelationsFunctions.wellFounded
 
 /- @@@
 # Well Founded Relations
@@ -28,7 +28,7 @@ relation. It's just a name. We can give it the concrete
 notation to reflect this view.
 @@@ -/
 
-open DMT1.Lectures.setsRelationsFunctions.propertiesOfRelations
+open DMT.setsRelationsFunctions.propertiesOfRelations
 
 section wellFounded
 
@@ -305,4 +305,4 @@ See [TPIL4](https://leanprover.github.io/theorem_proving_in_lean4/induction_and_
 
 @@@ -/
 
-end DMT1.Lectures.setsRelationsFunctions.wellFounded
+end DMT.setsRelationsFunctions.wellFounded

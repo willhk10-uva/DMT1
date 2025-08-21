@@ -1,8 +1,8 @@
-import DMT1.Lectures.L08_setsRelationsFunctions.«04_propertiesOfRelations»
+import DMT.L08_setsRelationsFunctions.«04_propertiesOfRelations»
 
-namespace DMT1.Lectures.setsRelationsFunctions.homeworksSetsRelations
+namespace DMT.setsRelationsFunctions.homeworksSetsRelations
 
-open DMT1.Lectures.setsRelationsFunctions.propertiesOfRelations
+open DMT.setsRelationsFunctions.propertiesOfRelations
 
 /- @@@
 Homework #8 Properties of Relations.
@@ -169,4 +169,4 @@ And.intro
 B. Next ... tbd
 @@@ -/
 
-end DMT1.Lectures.setsRelationsFunctions.homeworksSetsRelations
+end DMT.setsRelationsFunctions.homeworksSetsRelations

@@ -7,7 +7,7 @@ import Mathlib.Tactic.Group
 import Mathlib.LinearAlgebra.Basis.Defs
 import Mathlib.LinearAlgebra.StdBasis
 
-import DMT1.Lectures.L10_algebra.vector.vector
+import DMT.L10_algebra.vector.vector
 
 namespace DMT1.Lecture.Bases
 

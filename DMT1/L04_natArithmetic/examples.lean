@@ -1,39 +1,54 @@
-import DMT1.MyWork.hw4.syntax
-import DMT1.MyWork.hw4.semantics
+import DMT.L04_natArithmetic.syntax
+import DMT.L04_natArithmetic.semantics
+import DMT.L04_natArithmetic.domain
 
-namespace DMT.L04_nat_arithmetic.arithLang.demo
-open DMT1.MyWork.hw4.syntax
+
+
+namespace DMT.natArithmetic.arithLang.demo
 
 /- @@@
 # Our Natural Number Arithmetic Language!
+
+<!-- toc -->
+
 @@@ -/
 
-#check Expr
+open DMT.natArithmetic.syntax
 
+#check OpExpr
+
+/- @@@
+@@@ -/
 -- some arithmetic literal expressions
-def zero : Expr := Expr.lit 0       -- abstract syntax
-def one  : Expr := {⟨1⟩}        -- our concrete syntax
+def zero : OpExpr := OpExpr.lit 0       -- abstract syntax
+def one  : OpExpr := {⟨1⟩}        -- our concrete syntax
 
+/- @@@
+@@@ -/
 -- some arithmetic variable expressions
-def X : Expr := Expr.var (Var.mk 0) -- abstract syntax
-def Y := {⟨1⟩}                      -- concrete syntax
-def Z := {⟨2⟩}
-def K := {⟨3⟩}
-def M := {⟨4⟩}
-def N := {⟨5⟩}
+def X : OpExpr := OpExpr.var (Var.mk 0) -- abstract syntax
+def Y : OpExpr := {⟨1⟩}                      -- concrete syntax
+def Z : OpExpr := {⟨2⟩}
+def K : OpExpr := {⟨3⟩}
+def M : OpExpr := {⟨4⟩}
+def N : OpExpr := {⟨5⟩}
 
+/- @@@
+@@@ -/
 -- an example of the kinds of expressions we can now write
-def e0 : Expr := [5]               -- literal expression
-def e1 : Expr := X                  -- variable expression
-def e2 : Expr := Y                  -- variable expression
-def e3 : Expr := Z                  -- variable expression
-def e4 : Expr := X + [2]         -- operator (+) expression
-def e5 : Expr := X + ([5] * Y) - X  --
-def e6 : Expr := X + [2] * Y  - X   --
-def e7 : Expr := [2] * Y + X - X    --
-def e8 : Expr := [10] - [2] * X     --
-def e9 : Expr := [2] * Y - X        --
+def e0 : OpExpr := [5]               -- literal expression
+def e1 : OpExpr := X                  -- variable expression
+def e2 : OpExpr := Y                  -- variable expression
+def e3 : OpExpr := Z                  -- variable expression
+def e4 : OpExpr := X + [2]         -- operator (+) expression
+def e5 : OpExpr := X + ([5] * Y) - X  --
+def e6 : OpExpr := X + [2] * Y  - X   --
+def e7 : OpExpr := [2] * Y + X - X    --
+def e8 : OpExpr := [10] - [2] * X     --
+def e9 : OpExpr := [2] * Y - X        --
 
+/- @@@
+@@@ -/
 -- an interpretation: X = 2, Y = 5, Z = 11, rest = 0
 def i259 : Var → Nat
 | Var.mk 0  => 2    -- X = 2
@@ -47,6 +62,8 @@ def i259 : Var → Nat
 #eval i259 ⟨ 3 ⟩
 
 
+/- @@@
+@@@ -/
 -- predict values of our six expressions under this interpretation
 #eval ⟦e0⟧ i259    -- expect 5
 #eval ⟦e1⟧ i259    -- expect 2
@@ -59,10 +76,10 @@ def i259 : Var → Nat
 #eval ⟦e8⟧ i259    -- expect 6
 #eval ⟦e9⟧ i259    -- expect 6
 
+/- @@@
+@@@ -/
 -- an interpretation: all variables evaluate to zero
 def i0 (_ : Var) := 0
-
--- With all variables bound to zero, expect all zeros
 #eval ⟦e0⟧ i0
 #eval ⟦e1⟧ i0
 #eval ⟦e2⟧ i0
@@ -70,6 +87,8 @@ def i0 (_ : Var) := 0
 #eval ⟦e4⟧ i0
 #eval ⟦e5⟧ i0
 
+/- @@@
+@@@ -/
 -- function: first six *variables* go to given values, rest to 0
 def i230463 : Var → Nat
 | ⟨ 0 ⟩ => 2          -- X := 2
@@ -87,4 +106,4 @@ def i230463 : Var → Nat
 #eval ⟦e4⟧ i230463
 #eval ⟦e5⟧ i230463
 
-end DMT.L04_nat_arithmetic.arithLang.demo
+end DMT.natArithmetic.arithLang.demo

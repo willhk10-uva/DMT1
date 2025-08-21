@@ -1,4 +1,4 @@
-import DMT1.DMT1
+import DMT1
 
 def main : IO Unit :=
   IO.println s!"Hello, {hello}!"
