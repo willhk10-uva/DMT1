@@ -1,0 +1,56 @@
+# Concepts in and through Propositional Logic
+
+Under construction and incomplete. Better to look at notes.md
+
+- propositional logic: an expression language
+- formalize syntax as a type, Expr, with four expression constructors:
+  - "lit" expression from Boolean
+  - "var" expression from var indexed by a natural number
+  - "UnOp" expression from unary operator, op, and (a smaller) expression, e
+  - "BinOp" expression from binary operator, op, and two expressions, e1, e2
+- abstract vs concrete syntax, de-sugaring
+- infix notations bring added complications
+  - have to specify relative precedences across several infix operators
+  - have to specify associativity properties of infix operators
+- constructors and consumers
+  - a "constructor", also known in logic as an introduction axiom (or "rule"):
+    - produces a term of a given type, T, from specified, typed argument values
+    - constructor C applied to (a1, ..., an) yields term (C a1 ... an), of type T
+    - a type can be defined to have any number of constructors
+  - a "destructor/eliminator" takes in a term of type T and analyzes it to:
+    - determine which of T's constructors produced it (matches on head of term)
+    - in each case, bind names to its remaining parts for possible subsequent use
+  - functions often analyze (look inside) data values to decide how to proceed
+  - (c.f., concept of parametricity in functions and data)
+- an operational semantics is a *function* for evaluating meanings of expressions
+- we define *eval*: given any (arbitrarily simple or complex) expression, eval:
+  - *consumes* it *recursively*, reducing parts from results of reducing subparts
+  - thus computing results *compositionally* its Boolean *meaning*
+- view an interpretation, i, as representing one of many possible Boolean worlds
+  - in PL, the i's (interpretations) are all Boolean valuations of n variables
+  - see a valuation/interpretation as a *function* from variables to Bools
+  - semantic evaluation answers whether expression, e, is true in world, i
+  - answer depends on meanings of both elementary expressions and *operators*
+    - elementary expressions are literal and variable expressions
+    - syntactic operators are \and,. \or, \not, etc.
+    - semantics of constant by the two cases
+    - semantics of variable by applying interpretation *function* to variable
+    - semantics of an operator is some Boolean function: &&, ||, !, etc.
+    - here it's a function from any operator to its meaning as a Boolean function
+  - evaluation of an expression under an interpretation is core subroutine
+  - using it we get algorithms for "deciding three properties of expressions:"
+    - validity: an expression is true in *all* (2^n) worlds (interpretations)
+    - satisfiability means there's *some* world (in the 2^n) in which it's true
+    - unsatisfiability means there's *no* world (in the 2^n) in which it's true
+  - "brute force" algorithm to *decide* if an expression, e, has each property:
+    - collect the results of evaluating e under each of the 2^n interpretations
+    - if they're all true, e is valid; if some are true, satisfiable; none: unsat
+  - look! a complete, precise, automated, declarative formal language (in Lean)
+    - abstract and concrete syntax
+    - operational semantics, eval : Expr -> Interpretation -> Bool
+    - brute force expression property checkers:  valid, sat, unsat
+  - Unsorted/misc
+    - map (eval e) over each i in list of interpretation *functions*
+    - specifying Boolean functions: truth tables (paper and machine)
+    - counting Boolean functions: how many ways to reduce n Booleans to one
+  - functions and partial evaluation

@@ -1,0 +1,29 @@
+
+AKA model-theoretic validity. Depends on there
+always beinga finte number of possible worlds in
+which a proposition ever needs to be evaluated to
+determine whether or not its true in *all* possible
+worlds.
+
+This nice property arises from the choice of Boolean
+algebra as the fixed semantic domain for expressions
+in propositional logic. Well, what if we wanted the
+variables in a logical expression to refer not only
+to Boolean truth values, as it were, but to be able
+to refer to objects of any kind imaginable.
+
+That is what we get, over propositional logic, when
+we meet predicate logic. To evaluate an expression
+one must specify a both the semantic domain itself,
+which is to say a space of all possible worlds,
+and and an interpretation specifying the meanings
+of the variables in an expression in that selected
+domain.
+
+Well, now we have an infinite collection of semantic
+domains, with finite or inifite numbers of individual 
+worlds in them. What we want to know with Clearly checking whether an expression
+is true in a finite a finite number of
+
+
+the number of possible worlds that one
