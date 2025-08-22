@@ -3,7 +3,7 @@ import Mathlib.Data.Real.Basic
 import Mathlib.Data.Nat.Choose.Basic
 import Mathlib.Tactic
 
-/-!
+/- @@@
 # Discrete Probability (finite sample spaces)
 
 This module introduces a minimal collection of definitions that are
@@ -23,24 +23,22 @@ In probability theory, we work with:
 
 This module implements these concepts for finite sample spaces, where we can
 enumerate all outcomes and compute probabilities by summing over finite sets.
--/
+@@ -/
 
 open Finset
 open scoped BigOperators
 
 namespace DMT1.L09_discreteProbability.discreteProbability
 
---noncomputable section
 open Classical
 
-/-!
+/- @@@
 ## Basic Definitions
 
 We start with the fundamental building blocks of probability theory.
--/
+@@@ -/
 
-/-- A **sample space** is a finite set of outcomes.
-
+/- @@@ A **sample space** is a finite set of outcomes.
     In probability, the sample space Ω represents all possible outcomes
     of a random experiment. For example:
     - Rolling a die: Ω = {1, 2, 3, 4, 5, 6}
@@ -49,6 +47,8 @@ We start with the fundamental building blocks of probability theory.
 
     We use `Finset Ω` to ensure the space is finite, so we can
     enumerate all outcomes and compute finite sums. -/
+
+    /-- A **sample space** is a finite set of outcomes. -/
 abbrev SampleSpace (Ω : Type) := Finset Ω
 
 /-- An **event** is a subset of the sample space.
