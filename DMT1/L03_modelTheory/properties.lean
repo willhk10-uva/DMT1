@@ -17,13 +17,16 @@ being *unsatisfiable?* And does "e" have the property of being
 *valid*.
 @@@ -/
 
-import DMT.L03_modelTheory.truthTable
+import DMT1.L02_propLogic.syntax
+import DMT1.L02_propLogic.utilities
+import DMT1.L03_modelTheory.truthTable
 
 -- TODO: Fix namespace names in this unit
-namespace DMT.propLogic.semantics.models
+namespace DMT1.L03_modelTheory.models
 
-open propLogic.syntax
-open propLogic.utilities
+open DMT1.L02_propLogic.syntax
+open DMT1.L02_propLogic.utilities
+open DMT1.L03_modelTheory.truthTable
 
 /- @@@
 ## Satisfiability
@@ -47,4 +50,4 @@ Validity means that a proposition is true under all interpretations
 def is_valid :  Expr → Bool :=
   λ e => reduce_and (truthTableOutputs e)
 
-end DMT.propLogic.semantics.models
+end DMT1.L03_modelTheory.models

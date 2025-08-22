@@ -11,10 +11,17 @@ now present the concepts of models and counter-examples.
 
 @@@ -/
 
-import DMT.L03_modelTheory.truthTable
+import DMT1.L02_propLogic.syntax
+import DMT1.L02_propLogic.semantics
+import DMT1.L02_propLogic.interpretation
 
-namespace DMT.propLogic.semantics.models
-open DMT.propLogic.syntax
+
+namespace DMT1.L03_modelTheory.models
+
+open DMT1.L02_propLogic.syntax
+open DMT1.L02_propLogic.semantics
+open DMT1.L02_propLogic.interpretation
+
 
 /- @@@
 Given a proposition (Expr), *e*, and an interpretation for
@@ -66,4 +73,4 @@ def findModel :  Expr → Option Interp
   | [] => none
   | h::_ => h
 
-end  DMT.propLogic.semantics.models
+end DMT1.L03_modelTheory.models

@@ -7,11 +7,12 @@
 import DMT1.L02_propLogic.utilities
 import DMT1.L02_propLogic.semantics
 
-namespace DMT1.propLogic.semantics
+namespace DMT1.L02_propLogic.interpretation
 
 open DMT1.L02_propLogic.syntax
 open DMT1.L02_propLogic.semantics
-open DMT.L02_propLogic.utilities
+open DMT1.L02_propLogic.utilities
+open  DMT1.L02_propLogic.interpretation
 
 /- @@@
 An interpretation, *i*, in predicate logic is a function
@@ -369,4 +370,4 @@ As a final note, if you improve this module's
 implementation, please send me a pull request!
 @@@ -/
 
-end DMT1.propLogic.semantics
+end DMT1.L02_propLogic.interpretation

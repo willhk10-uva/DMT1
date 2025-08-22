@@ -1,9 +1,9 @@
-import DMT.L02_propLogic.model_theory.properties
-import DMT.L02_propLogic.model_theory.truthTable
-import DMT.L02_propLogic.model_theory.counterexamples
-import DMT.L02_propLogic.interpretation
-import DMT.L02_propLogic.semantics
-import DMT.L02_propLogic.syntax
+import DMT1.L03_modelTheory.properties
+import DMT1.L03_modelTheory.truthTable
+import DMT1.L03_modelTheory.counterexamples
+import DMT1.L02_propLogic.interpretation
+import DMT1.L02_propLogic.semantics
+import DMT1.L02_propLogic.syntax
 
 namespace DMT1.lecture.propLogic
 

@@ -4,10 +4,15 @@
 <!-- toc -->
 @@@ -/
 
-import DMT.L03_modelTheory.models
+import DMT1.L02_propLogic.interpretation
+import DMT1.L03_modelTheory.models
+import DMT1.L03_modelTheory.properties
 
-namespace DMT.propLogic.semantics.models
-open propLogic.syntax
+namespace DMT1.L03_modelTheory.counterexamples
+
+open DMT1.L02_propLogic.syntax
+open DMT1.L03_modelTheory.models
+open DMT1.L02_propLogic.interpretation
 
 /- @@@
 
@@ -37,4 +42,4 @@ as a list of length either zero (called none) or one (called some e), where
 e the specific value in the length-one list of values (an interpertation).
 @@@ -/
 
-end DMT.propLogic.semantics.models
+end DMT1.L03_modelTheory.counterexamples
