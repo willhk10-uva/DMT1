@@ -1,5 +1,5 @@
-import DMT.L02_propLogic.semantics
-import DMT.L02_propLogic.syntax
+import DMT1.L02_propLogic.semantics
+import DMT1.L02_propLogic.syntax
 import Mathlib.Data.Set.Basic
 import Mathlib.Logic.Relation
 

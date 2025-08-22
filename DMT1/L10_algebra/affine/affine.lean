@@ -1,6 +1,6 @@
 import Mathlib.LinearAlgebra.AffineSpace.Defs
 import Mathlib.LinearAlgebra.AffineSpace.AffineEquiv
-import DMT.L10_algebra.torsor.torsor
+import DMT1.L10_algebra.torsor.torsor
 
 
 import Mathlib.Data.Real.Basic

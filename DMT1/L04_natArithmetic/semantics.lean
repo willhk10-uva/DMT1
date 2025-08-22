@@ -1,5 +1,5 @@
-import DMT.L04_natArithmetic.syntax
-import DMT.L04_natArithmetic.domain
+import DMT1.L04_natArithmetic.syntax
+import DMT1.L04_natArithmetic.domain
 
 namespace DMT.natArithmetic.semantics
 

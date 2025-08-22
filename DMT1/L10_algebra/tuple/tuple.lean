@@ -1,5 +1,5 @@
 import Mathlib.Data.Rat.Defs
-import DMT.L10_algebra.scalar.scalar
+import DMT1.L10_algebra.scalar.scalar
 
 namespace DMT1.Algebra.Tuples
 

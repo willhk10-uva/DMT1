@@ -1,6 +1,6 @@
-import DMT.L04_natArithmetic.syntax
-import DMT.L04_natArithmetic.semantics
-import DMT.L04_natArithmetic.domain
+import DMT1.L04_natArithmetic.syntax
+import DMT1.L04_natArithmetic.semantics
+import DMT1.L04_natArithmetic.domain
 
 
 

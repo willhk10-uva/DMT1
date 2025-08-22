@@ -1,4 +1,4 @@
-import DMT.L09_classes.C04_vectorSpaces
+import DMT1.L09_classes.C04_vectorSpaces
 
 /- @@@
 <!-- toc -->

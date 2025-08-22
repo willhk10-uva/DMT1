@@ -10,6 +10,6 @@ import DMT1.L02_propLogic.axioms
 import DMT1.L02_propLogic.identities
 
 -- model theory
-import DMT1.L03_model_theory.properties
-import DMT1.L03.model_theory.truthTable
-import DMT1.L03.model_theory.counterexamples
+import DMT1.L03_modelTheory.properties
+import DMT1.L03_modelTheory.truthTable
+import DMT1.L03_modelTheory.counterexamples

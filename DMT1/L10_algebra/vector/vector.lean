@@ -1,5 +1,5 @@
 import Mathlib.Data.Rat.Defs
-import DMT.L10_algebra.tuple.tuple
+import DMT1.L10_algebra.tuple.tuple
 
 namespace DMT1.Algebra.Vector
 

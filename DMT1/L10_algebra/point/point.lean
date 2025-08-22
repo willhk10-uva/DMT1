@@ -1,4 +1,4 @@
-import DMT.L10_algebra.vector.vector
+import DMT1.L10_algebra.vector.vector
 
 namespace DMT1.Algebra.Point
 

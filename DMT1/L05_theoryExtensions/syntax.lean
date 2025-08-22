@@ -10,7 +10,7 @@ syntax propositional logic.
 /- @@@
 We import the theory syntactic language
 @@@ -/
-import DMT.L04_natArithmetic.syntax
+import DMT1.L04_natArithmetic.syntax
 
 namespace DMT.theoryExtensions.syntax
 

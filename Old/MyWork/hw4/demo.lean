@@ -1,7 +1,7 @@
 import DMT1.MyWork.hw4.syntax
 import DMT1.MyWork.hw4.semantics
 
-namespace DMT.L04_nat_arithmetic.arithLang.demo
+namespace DMT1.L04_nat_arithmetic.arithLang.demo
 open DMT1.MyWork.hw4.syntax
 
 /- @@@
@@ -87,4 +87,4 @@ def i230463 : Var → Nat
 #eval ⟦e4⟧ i230463
 #eval ⟦e5⟧ i230463
 
-end DMT.L04_nat_arithmetic.arithLang.demo
+end DMT1.L04_nat_arithmetic.arithLang.demo

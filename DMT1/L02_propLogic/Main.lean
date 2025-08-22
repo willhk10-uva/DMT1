@@ -9,9 +9,10 @@ namespace DMT1.lecture.propLogic
 
 namespace DMT1.lecture.propLogic
 
-open propLogic.syntax
-open semantics
-open models
+open DMT1.L02_propLogic.syntax
+open DMT1.L02_propLogic.semantics
+open DMT1.L02_propLogic.interpretation
+open DMT1.L03_modelTheory.models
 
 /-!
 # Syntax

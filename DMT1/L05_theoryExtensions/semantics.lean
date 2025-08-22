@@ -33,10 +33,10 @@ Boolean function that is the designated meaning of *op*.
 That's it!
 @@@ -/
 
-import DMT.L05_theoryExtensions.syntax
-import DMT.L05_theoryExtensions.domain
-import DMT.L04_natArithmetic.syntax
-import DMT.L04_natArithmetic.semantics
+import DMT1.L05_theoryExtensions.syntax
+import DMT1.L05_theoryExtensions.domain
+import DMT1.L04_natArithmetic.syntax
+import DMT1.L04_natArithmetic.semantics
 
 namespace DMT.theoryExtensions.semantics
 

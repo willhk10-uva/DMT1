@@ -1,5 +1,5 @@
-import DMT.L05_theoryExtensions.syntax
-import DMT.L05_theoryExtensions.semantics
+import DMT1.L05_theoryExtensions.syntax
+import DMT1.L05_theoryExtensions.semantics
 
 /- @@@
 # Examples

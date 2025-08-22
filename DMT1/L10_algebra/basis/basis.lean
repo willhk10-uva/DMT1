@@ -10,7 +10,7 @@ import Mathlib.Data.Matrix.Defs
 import Mathlib.Data.Matrix.Basic
 import Mathlib.LinearAlgebra.Determinant
 import Mathlib.Algebra.Module.LinearMap.Defs
-import DMT.L10_algebra.torsor.torsor
+import DMT1.L10_algebra.torsor.torsor
 
 
 /- @@@

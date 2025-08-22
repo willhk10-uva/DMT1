@@ -1,6 +1,6 @@
 import Mathlib.Data.Rat.Defs
 import Mathlib.LinearAlgebra.AffineSpace.Defs
-import DMT.L10_algebra.point.point
+import DMT1.L10_algebra.point.point
 
 namespace DMT1.Algebra.Torsor
 

@@ -1,7 +1,7 @@
 -- TODO: Fix imports to come from Lectures
-import DMT.L02_propLogic.syntax
-import DMT.L02_propLogic.semantics
-import DMT.L03_modelTheory.properties
+import DMT1.L02_propLogic.syntax
+import DMT1.L02_propLogic.semantics
+import DMT1.L03_modelTheory.properties
 
 namespace DMT.propLogic.syntax
 open DMT.propLogic.semantics.models

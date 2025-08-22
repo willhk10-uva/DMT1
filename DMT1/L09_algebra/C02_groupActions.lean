@@ -1,7 +1,7 @@
 import Mathlib.Algebra.Group.Defs
 import Mathlib.Algebra.Group.Action.Defs
 
-import DMT.L09_algebra.C01_groups
+import DMT1.L09_algebra.C01_groups
 
 namespace DMT1.Lecture.classes.groupActions
 

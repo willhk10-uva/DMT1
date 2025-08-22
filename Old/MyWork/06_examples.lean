@@ -1,4 +1,4 @@
-import DMT.L08_setsRelationsFunctions.«04_propertiesOfRelations»
+import DMT1.L08_setsRelationsFunctions.«04_propertiesOfRelations»
 
 namespace DMT.setsRelationsFunctions.homeworksSetsRelations
 
