@@ -68,7 +68,7 @@ by the uninhabitedness of the type that represents it.
 So if we try to prove *N* we get stuck being unable to
 give term of this type, because there are none.
 @@@ -/
-def r : N := _    -- No. There's no proof term for it!
+def r : N := sorry    -- No. There's no proof term for it!
 
 /- @@@
 ## Representing The Logical Connectives
@@ -281,7 +281,7 @@ the *Empty* type needs to be returned.
 
 -- Can't prove that P is false, as it has a proof
 def falseP : P → Empty
-| P.mk => _   -- can't return value of Empty type!
+| P.mk => sorry   -- can't return value of Empty type!
 
 
 -- But *N* is empty so this definition works

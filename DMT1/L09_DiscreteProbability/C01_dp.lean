@@ -155,7 +155,7 @@ lemma expectation_indicator_eq_prob (A : Event Ω) :
     ext ω
     simp [Finset.mem_filter, and_comm, and_left_comm]
   -- Finish the calculation
-  simpa [h_sum, h_set] 
+  simpa [h_sum, h_set]
 
 end ProbabilityMeasure
 

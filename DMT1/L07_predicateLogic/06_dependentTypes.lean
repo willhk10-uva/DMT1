@@ -95,7 +95,7 @@ makes the point clear again.
 
 example : ∀ (p : Person), Mortal p :=
   fun (p : Person)  =>  -- assume p is an arbitrary person
-  _                     -- show that this person is mortal
+  sorry                     -- show that this person is mortal
 
 /- @@@
 Such a function takes any person, *p*, as an argument, and
@@ -176,4 +176,4 @@ to construct a value of the List5 type, because there will be no way to
 construct the required second element of such a dependent pair.
 @@@-/
 
-example : List5 Nat := ⟨ [1,2,3,4], rfl ⟩   -- Error: length != 5
+-- example : List5 Nat := ⟨ [1,2,3,4], rfl ⟩   -- Error: length != 5

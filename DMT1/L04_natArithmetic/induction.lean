@@ -396,22 +396,23 @@ def baseSq : Nat := 0
 def stepSq : Nat → Nat → Nat
 | n', sum_sq_n' => sorry
 
--- here's how the stepping up works
-#eval stepSq 0 0  -- return answer for n = 1; expect 1
-#eval stepSq 1 1 -- return answer for n = 2; expect 5
-#eval stepSq 2 5 -- return answer for n = 3; expect 14
-#eval stepSq 3 14 -- return answer for n = 4; expect 30
-#eval stepSq 4 30 -- return answer for n = 5; expect 55
+-- here's how the stepping up works (uncomment when ready)
+-- #eval stepSq 0 0  -- return answer for n = 1; expect 1
+-- #eval stepSq 1 1 -- return answer for n = 2; expect 5
+-- #eval stepSq 2 5 -- return answer for n = 3; expect 14
+-- #eval stepSq 3 14 -- return answer for n = 4; expect 30
+-- #eval stepSq 4 30 -- return answer for n = 5; expect 55
 
 -- apply induction to construct desired function
 def sumSq : Nat → Nat := Nat.rec baseSq stepSq
 
-#eval sumSq 0   -- expect 0
-#eval sumSq 1   -- expect 1
-#eval sumSq 2   -- expect 5
-#eval sumSq 3   -- expect 14
-#eval sumSq 4   -- expect 30
-#eval sumSq 5   -- expect 55  (weird: also sum of nat 0..10)
+-- uncomment when ready
+-- #eval sumSq 0   -- expect 0
+-- #eval sumSq 1   -- expect 1
+-- #eval sumSq 2   -- expect 5
+-- #eval sumSq 3   -- expect 14
+-- #eval sumSq 4   -- expect 30
+-- #eval sumSq 5   -- expect 55  (weird: also sum of nat 0..10)
 
 def sumSq' : Nat → Nat
 | 0 => 0
@@ -528,8 +529,8 @@ def binaryRep : Nat → String
             sorry ++ toString (n % 2)
 
 -- Complete the definition. The tests will work,.
-#eval binaryRep 0   --expect "0"
-#eval binaryRep 5   --expect "101"
+-- #eval binaryRep 0   --expect "0"
+-- #eval binaryRep 5   --expect "101"
 
 /- @@@
 ### Other Induction Axioms

@@ -395,24 +395,24 @@ def baseSq : Nat := 0
 -- step up answer machine
 -- from n' and sumSq n' return (n' + 1)^2 + sumSq n'
 def stepSq : Nat → Nat → Nat
-| n', sum_sq_n' => _
+| n', sum_sq_n' => sorry
 
 -- here's how the stepping up works
-#eval stepSq 0 0  -- return answer for n = 1; expect 1
-#eval stepSq 1 1 -- return answer for n = 2; expect 5
-#eval stepSq 2 5 -- return answer for n = 3; expect 14
-#eval stepSq 3 14 -- return answer for n = 4; expect 30
-#eval stepSq 4 30 -- return answer for n = 5; expect 55
+-- #eval stepSq 0 0  -- return answer for n = 1; expect 1
+-- #eval stepSq 1 1 -- return answer for n = 2; expect 5
+-- #eval stepSq 2 5 -- return answer for n = 3; expect 14
+-- #eval stepSq 3 14 -- return answer for n = 4; expect 30
+-- #eval stepSq 4 30 -- return answer for n = 5; expect 55
 
 -- apply induction to construct desired function
 def sumSq : Nat → Nat := Nat.rec baseSq stepSq
 
-#eval sumSq 0   -- expect 0
-#eval sumSq 1   -- expect 1
-#eval sumSq 2   -- expect 5
-#eval sumSq 3   -- expect 14
-#eval sumSq 4   -- expect 30
-#eval sumSq 5   -- expect 55  (weird: also sum of nat 0..10)
+-- #eval sumSq 0   -- expect 0
+-- #eval sumSq 1   -- expect 1
+-- #eval sumSq 2   -- expect 5
+-- #eval sumSq 3   -- expect 14
+-- #eval sumSq 4   -- expect 30
+-- #eval sumSq 5   -- expect 55  (weird: also sum of nat 0..10)
 
 def sumSq' : Nat → Nat
 | 0 => 0
@@ -529,11 +529,11 @@ def binaryRep : Nat → String
 | 0 => "0"
 | 1 => "1"
 | n' + 2 => let n := n' + 2
-            _ ++ toString (n % 2)
+            sorry ++ toString (n % 2)
 
 -- Complete the definition. The tests will work,.
-#eval binaryRep 0   --expect "0"
-#eval binaryRep 5   --expect "101"
+-- #eval binaryRep 0   --expect "0"
+-- #eval binaryRep 5   --expect "101"
 
 /- @@@
 ### Other Induction Axioms
@@ -622,9 +622,9 @@ third case for the indutive construction, for any n = (n' + 2).
 @@@ -/
 
 def fib : Nat → Nat
-| 0 => _
-| 1 => _
-| n' + 2 => _
+| 0 => sorry
+| 1 => sorry
+| n' + 2 => sorry
 
 /- @@@
 Write test cases for 0, 1, 2, and 10. Does it work?

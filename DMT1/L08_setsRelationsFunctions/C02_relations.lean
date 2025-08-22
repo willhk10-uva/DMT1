@@ -3,7 +3,7 @@ import Mathlib.Data.Set.Basic
 import Mathlib.Logic.Relation
 import Mathlib.Data.Real.Basic
 
-namespace DMT.setsRelationsFunctions.relations
+namespace DMT1.L08_setsRelationsFunctions.relations
 
 
 

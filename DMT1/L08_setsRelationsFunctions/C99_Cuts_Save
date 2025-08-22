@@ -1,3 +1,7 @@
+/- @@@
+
+# Foo
+
 To understand what it means for an endorelation to be well
 founded, we need the notion of what it means for an element,
 *(x : α)* to be *accessible* under a given relation, *r*.

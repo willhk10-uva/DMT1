@@ -3,7 +3,7 @@ import Mathlib.Data.Set.Basic
 import Mathlib.Logic.Relation
 import Mathlib.Data.Real.Basic
 
-import DMT1.L08_setsRelationsFunctions.C04_propertiesOfRelations
+import DMT1.L08_setsRelationsFunctions.C04_properties
 
 /- @@@
 We've now imported the properties of relation defined in

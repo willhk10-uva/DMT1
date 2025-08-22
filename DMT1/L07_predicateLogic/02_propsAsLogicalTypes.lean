@@ -72,19 +72,7 @@ a proof of False.
 
 example : 0 = 1 → False :=
   fun h =>
-    let (f : False) := nomatch h
-    -- this example continues below
-
-/- @@@
-Now having derived a proof of false, from our inconsistent
-assumption, we can use the axiom of false elimination (*False.elim*
-in Lean) to succeed≥ The underlying reasoning is that *we are in a
-a situation that can never actually occur -- you can never have a
-proof of *1 = 0 to pass as an argument* -- so we can just ignore
-reasoning any further in this situation and declare success.
-@@@ -/
-
-    -- Here then is the last line of the proof
+    let f : False := nomatch h
     False.elim f
 
 /-@@@
