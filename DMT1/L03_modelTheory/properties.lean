@@ -22,7 +22,7 @@ import DMT1.L02_propLogic.utilities
 import DMT1.L03_modelTheory.truthTable
 
 -- TODO: Fix namespace names in this unit
-namespace DMT1.L03_modelTheory.models
+namespace DMT1.L03_modelTheory.properties
 
 open DMT1.L02_propLogic.syntax
 open DMT1.L02_propLogic.utilities
@@ -50,4 +50,4 @@ Validity means that a proposition is true under all interpretations
 def is_valid :  Expr → Bool :=
   λ e => reduce_and (truthTableOutputs e)
 
-end DMT1.L03_modelTheory.models
+end DMT1.L03_modelTheory.properties

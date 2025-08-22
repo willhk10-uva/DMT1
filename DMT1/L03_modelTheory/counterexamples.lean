@@ -4,15 +4,13 @@
 <!-- toc -->
 @@@ -/
 
-import DMT1.L02_propLogic.interpretation
 import DMT1.L03_modelTheory.models
-import DMT1.L03_modelTheory.properties
 
 namespace DMT1.L03_modelTheory.counterexamples
 
 open DMT1.L02_propLogic.syntax
+open DMT1.L02_propLogic.semantics
 open DMT1.L03_modelTheory.models
-open DMT1.L02_propLogic.interpretation
 
 /- @@@
 

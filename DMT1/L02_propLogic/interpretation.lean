@@ -12,7 +12,6 @@ namespace DMT1.L02_propLogic.interpretation
 open DMT1.L02_propLogic.syntax
 open DMT1.L02_propLogic.semantics
 open DMT1.L02_propLogic.utilities
-open  DMT1.L02_propLogic.interpretation
 
 /- @@@
 An interpretation, *i*, in predicate logic is a function
