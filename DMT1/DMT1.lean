@@ -7,6 +7,7 @@ import DMT1.L02_propLogic.domain
 import DMT1.L02_propLogic.syntax
 import DMT1.L02_propLogic.interpretation
 import DMT1.L02_propLogic.axioms
+import DMT1.L02_propLogic.demo
 import DMT1.L02_propLogic.identities
 
 -- model theory
