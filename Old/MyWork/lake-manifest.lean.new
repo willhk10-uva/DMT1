@@ -1,8 +1,0 @@
-import Lake
-open Lake DSL
-
-lean_lib DMT1
-
-@[default_target]
-lean_exe dmt1 where
-  root := `Main
