@@ -47,7 +47,8 @@ def PandQ := And P Q
 
 
 /- @@@
-### Proofs of Propositions -/
+### Proofs of Propositions
+@@@ -/
 
 /- @@@
 We've already discussed proofs. Let's now assume that we have
