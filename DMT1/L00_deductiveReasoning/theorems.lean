@@ -13,6 +13,8 @@ axiom Q : Prop
 axiom R : Prop
 
 #check P
+#check 5
+#check "Hello, World!"
 -- #check Z
 
 /- @@@
@@ -47,7 +49,7 @@ def PandQ := And P Q
 
 
 /- @@@
-### Proofs of Propositions
+## Proofs (of Propositions)
 @@@ -/
 
 /- @@@
@@ -66,19 +68,87 @@ axiom r : R
 #check p
 
 /- @@@
-### Logical Connectives: The Case of And (∧)
+## Proposition Builders: The Case of And (∧)
 
-We've seen that from a few elementary
-propositions we can form an endless realm
-of compound propositions. Of course we want
-to be able to prove them, too (when they're
-true).
+We've seen that with one connective, ∧, we
+can rapidly assemble large propositions from
+smaller ones already on hand.
+@@@ -/
 
-Just as logical *connectives* compose given
-propositions into larger propositions, so we
-also have "little programs" for composing proofs
-of given propositions into proofs of larger ones
-made from them.
+def PQ0 : Prop := P ∧ Q   -- 1 PQ1
+#reduce (types := true) PQ0
+
+def PQ1 := PQ0 ∧ PQ0      -- 2 PQ1s
+#reduce (types := true) PQ1
+
+def PQ2 := PQ1 ∧ PQ1      -- 4 PQ1s
+#reduce (types := true) PQ2
+
+def PQ3 := PQ2 ∧ PQ2      -- 8 PQ1s!
+#reduce (types := true) PQ3
+
+/- @@@
+QUESTION:
+
+If we continued defining PQ4, PQ5, on up
+to PQ10, in the same manner, how many PQ1s
+would that final PQ10 proposition contain?
+
+ANSWER: ___________
+@@@ -/
+
+
+/- @@@
+## Proof Builders: The Case of And.intro _ _
+
+Just as we can construct new propositions by
+composing existing ones, we will most often
+construct new proofs *using* other proofs as
+inputs. We have already seen that we can build
+the proposition, *P ∧ Q*, from the given ones,
+*P*, and *Q*, respectively.
+
+Suppose we want a proof of this new proposition.
+Assume furthermore that we have two proofs already
+on hand: *p*, a proof of *P*, and *q* a proof of
+*Q*.
+
+Fortunately, we have just the proof builder we need!
+It's a function, And.intro _ _. I write it with two
+placeholders after the name to remind us that it is
+a function that takes two arguments: a proof of the
+left side of a proposition, and a proof of the right
+side. It then returns (*reduces to*)
+
+All we have to do is
+*apply* it to two actual parameter values, the first
+a proof of P, and the second a proof of Q.
+-/
+
+#check P              -- Proposition
+#check Q              -- Proposition
+#check P ∧ Q          -- Proposition
+#check p              -- Proof of P
+#check q              -- Proof of Q
+#check And.intro p q  -- Proof of P ∧ Q
+
+/-
+∧=intro, as you'll see it written, is an *inference
+rule* in all of the logics we'll study this semester.
+An inference rule is fundamental principle of sound
+*logical* reasoning, but, in this class, we will also
+them of them as *proof-producing* functions.
+
+Our one and main example of a  *And.intro* When applied to a proof, p : P, and a proof, q : Q,
+the result is a proof, ⟨ p, q ⟩ : P ∧ Q.
+@@@ -/
+
+/- @@@
+Proposition builders are also called connectives.
+Now just as connectives , such as ∧, compose given
+propositions into larger ones, so we also have ways
+to use proofs we already have in the construction of
+proofs that we need.
 
 As an example, consider this. So far we have:
 
@@ -86,7 +156,7 @@ As an example, consider this. So far we have:
 - because they are, so is P ∧ Q
 - *p* and *q* are proofs of P, Q
 - And.intro is a function
-  - in: (P Q : Prop) (p : Q) (q : Q)
+  - in: (P Q : Prop) (p : P) (q : Q)
   - out: (And.intro p q) : P ∧ Q
 - notation: for And.intro p q, ⟨ p, q ⟩
 
@@ -148,14 +218,14 @@ showing Q ∧ P is true. In short P ∧ Q → Q ∧ P (and it works
 in the other direction, too.)
 @@@ -/
 
-theorem andCommutes : P ∧ Q → Q ∧ P :=
+theorem andIsCommutative : P ∧ Q → Q ∧ P :=
   fun (h : P ∧ Q) =>    -- given a proof of P and Q
     And.intro           -- construct a proof from
       (And.right h)     -- (q : Q)
       (And.left h)      -- (p: P), in that order, voila!
 
 -- Here it is using shorthand notation
-theorem andCommutes' : P ∧ Q → Q ∧ P :=
+theorem andIsCommutative' : P ∧ Q → Q ∧ P :=
   fun (h : P ∧ Q) =>    -- assume we're given proof h
     ⟨ h.right, h.left ⟩ -- construct/return the result
 
@@ -171,7 +241,7 @@ construct proofs, but be aware of the so-called
 eventually want to use.
 @@@ -/
 
-theorem andCommutes'' : P ∧ Q → Q ∧ P :=
+theorem andIsCommutative'' : P ∧ Q → Q ∧ P :=
 by                      -- toggles to tactic mode
   intro h               -- introduce h as argument
   let p := And.left h   -- from h extract (p : P)
@@ -199,18 +269,54 @@ in the reverse direction.
 @@@ -/
 
 theorem andAssoc : P ∧ Q ∧ R ↔ (P ∧ Q) ∧ R :=
-by
   -- to prove ↔, prove both directions
-  apply Iff.intro _ _
-  { -- forward: P ∧ Q ∧ R → (P ∧ Q) ∧ R
-    intro h                   -- assumption
-    let p := h.left           -- get smaller proofs
-    let q := h.right.left
-    let r := h.right.right
-    let pq := And.intro p q   -- assumble and retirn
-    exact (And.intro pq r)    -- the final proof object
-  }
-  { -- reverse: (P ∧ Q) ∧ R → P ∧ Q ∧ R
+  Iff.intro
+  (
+    fun
+    (h : P ∧ Q ∧ R) =>
+    (
+      _
+    )
+  )
+  (
+    fun
+    (h : (P ∧ Q) ∧ R) =>
+    (
+      _
+    )
+  )
+  -- { -- forward: P ∧ Q ∧ R → (P ∧ Q) ∧ R
+  --   intro h                   -- assumption
+  --   let p := h.left           -- get smaller proofs
+  --   let q := h.right.left
+  --   let r := h.right.right
+  --   let pq := And.intro p q   -- assumble and retirn
+  --   exact (And.intro pq r)    -- the final proof object
+  -- }
+  -- { -- reverse: (P ∧ Q) ∧ R → P ∧ Q ∧ R
+  --   -- the same basic approach applies here
+  --   intro h
+  --   let p := h.left.left
+  --   let q := h.left.right
+  --   let r := h.right
+  --   let qr := And.intro q r
+  --   exact (And.intro p qr)
+  -- }
+
+
+
+theorem andAssoc' : P ∧ Q ∧ R ↔ (P ∧ Q) ∧ R :=
+  -- to prove ↔, prove both directions
+  Iff.intro
+    ( by -- forward: P ∧ Q ∧ R → (P ∧ Q) ∧ R
+      intro h                   -- assumption
+      let p := h.left           -- get smaller proofs
+      let q := h.right.left
+      let r := h.right.right
+      let pq := And.intro p q   -- assumble and retirn
+      exact (And.intro pq r)    -- the final proof object
+    )
+    ( by -- reverse: (P ∧ Q) ∧ R → P ∧ Q ∧ R
     -- the same basic approach applies here
     intro h
     let p := h.left.left
@@ -218,7 +324,7 @@ by
     let r := h.right
     let qr := And.intro q r
     exact (And.intro p qr)
-  }
+    )
 
 /- @@@
 ## Wrap Up: New Ideas
