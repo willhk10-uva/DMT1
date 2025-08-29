@@ -1,7 +1,38 @@
 /- @@@
-# Reasoning in Action: The Case of Conjunction
+# Deductive Reasoning : The Case of Conjunctions
+
+As computer scientists we are not only users but designers
+of diverse logics. Every programming language is a logic.
+And with each programming language are many elements of the
+logics we will study in this class. In predicate logic, the
+primary logic of mathematics, the notion of *And* is specific:
+*P ∧ Q* is true iff and only if each of *P* and *Q* is (in
+a given world).
+
+One *could* define *And* differently, e.g., to mean *and then*,
+as in *they robbed a bank and (then) got in big trouble*. That's
+a great idea but leads to *temporal logics*. These logics are
+incredibly useful for reasoning about software with its often
+deeply sequential nature (semicolon means do that *and then*
+do this). If you want to learn about temporal logic for computer
+scientists, a good place to start would be with Leslie Lamport's
+[Temporal Logic of Actions](https://lamport.azurewebsites.net/tla/hyperbook.html?back-link=tools.html#documentation).
+
+As you study this material, again take note of how one specific
+meaning of *And* is enforced by the definitions of the inference
+rules chosen for it. There is no sense of temporal order mattering.
+Indeed, the designers of predicate logic defined *And* with a full
+understanding that that meant that order would not matter. By the
+time you get to the end of this chapter, you should be thinking
+this: "I see that meaning is unchanged by swapping the order of
+arguments to *And*; but (1) how would I express that idea with
+mathematical precision and full generality, and (2) how would I
+construct a proof to show that that the resulting proposition is
+true?*
+
+Well, let's go.
 @@@ -/
-namespace DMT1.reasoning
+namespace DMT1.inference
 
 /- @@@
 ## Propositions
@@ -203,37 +234,30 @@ in the reverse direction.
 theorem andAssoc : P ∧ Q ∧ R ↔ (P ∧ Q) ∧ R :=
   -- to prove ↔, prove both directions
   Iff.intro
+  -- prove forward direction: P ∧ Q ∧ R → (P ∧ Q) ∧ R
   (
     fun
     (h : P ∧ Q ∧ R) =>
-    (
-      _
+    by (
+      let p := h.left           -- get smaller proofs
+      let q := h.right.left
+      let r := h.right.right
+      let pq := And.intro p q   -- assumble and retirn
+      exact (And.intro pq r)    -- the final proof object
     )
   )
+  -- provde reverse: (P ∧ Q) ∧ R → P ∧ Q ∧ R
   (
     fun
     (h : (P ∧ Q) ∧ R) =>
-    (
-      _
-    )
+      (
+        let p := h.left.left
+        let q := h.left.right
+        let r := h.right
+        let qr := And.intro q r
+        And.intro p qr
+      )
   )
-  -- { -- forward: P ∧ Q ∧ R → (P ∧ Q) ∧ R
-  --   intro h                   -- assumption
-  --   let p := h.left           -- get smaller proofs
-  --   let q := h.right.left
-  --   let r := h.right.right
-  --   let pq := And.intro p q   -- assumble and retirn
-  --   exact (And.intro pq r)    -- the final proof object
-  -- }
-  -- { -- reverse: (P ∧ Q) ∧ R → P ∧ Q ∧ R
-  --   -- the same basic approach applies here
-  --   intro h
-  --   let p := h.left.left
-  --   let q := h.left.right
-  --   let r := h.right
-  --   let qr := And.intro q r
-  --   exact (And.intro p qr)
-  -- }
 
 
 
@@ -258,39 +282,4 @@ theorem andAssoc' : P ∧ Q ∧ R ↔ (P ∧ Q) ∧ R :=
     exact (And.intro p qr)
     )
 
-/- @@@
-## Wrap Up: New Ideas
-
-### Implies (→)
-
-You can read the proposition, P → Q, as asserting that
-*if P is true then so is Q.* Now this question is what
-proves this kind of proposition to be true. Here's the
-idea. Assume P is true, with a proof p. Now show that
-from that p you can construct a proof of Q. That shows
-that if P is true (with a proof p) then Q is true, too,
-as it's always possible to derive a proof of Q using p.
-
-So that's how you construct a proof of P → Q: just give
-a way to convert any proof of P into a proof of Q. That
-is it. The resulting proof, in our logic, will then be
-*literally* in the form of a function that turns a proof
-of P given as an argument into a proof of Q as a return
-value. In other words, you can then *apply* a proof of
-*P → Q* to a proof *(p : P)* and the return value will
-be a proof of *Q*. That such a proof-converter exists
-shows that P implies Q! Indeed, we *andCommutes* can be
-seen now as a simple function definition, albeit one that
-acts on proof objects, not ordinary data values such as
-strings and Booleans.
-
-### Iff (↔)
-
-The *Iff (↔)* logical connective. P ↔ Q simple means
-(P → Q) ∧ (Q → P). To prove P ↔ Q you thus need to have
-both a proof of P → Q and a proof of Q → P. That's it.
-Moreover, if you have a proof of P ↔ Q then from it you
-can always extract a proof P → Q and a proof of Q → P.
-@@@ -/
-
-end reasoning
+end DMT1.inference
