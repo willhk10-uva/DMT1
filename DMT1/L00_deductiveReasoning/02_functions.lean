@@ -446,6 +446,14 @@ type argument values. Be sure you compare and contrast
 this code with that using the first version of *ident.*
 @@@ -/
 
+def compose {alpha beta gamma : Type}
+  (f : alpha → beta)
+  (g : beta → gama) :=
+    fun a => g (f a)
+
+def isEvLenStr': String → Bool :=
+  compose String.length isEven
+
 
 /- @@@
 ## Function Definition by Case Analysis
@@ -506,6 +514,7 @@ in Lean using the *match* statement. Here we will
 match the argument *b,* a Bool value, against the
 two possible forms it could take. We call this case
 analysis. In this example there are just two cases.
+
 
 Each case starts with a vertical bar, then what we
 call a *pattern.* Lean compares the incoming value
