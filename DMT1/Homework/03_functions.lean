@@ -28,7 +28,7 @@ squared.
 @@@ -/
 
 def square : Nat → Nat :=
-  sorry
+  λ (n : Nat) => n^2
 
 /- @@@
 #1 [5 points].
@@ -72,6 +72,8 @@ it be wrong to use α (alpha) conversion
 to rename an argument, *x*, to *y*? Why?
 
 Answer here:
+it would be wrong to use alpha conversion to rename an argument when *y* already has a meaning.
+it must be unused.
 
 ANSWER: If the variable *y* already has
 a meaning in the application term. The new
@@ -117,7 +119,7 @@ replacing the *sorry* with your answer.
 def M : Nat → Nat → Nat := fun x y => x * y
 
 def M' : Nat → Nat :=
-  sorry
+  fun y => 2 * y
 
 /- @@@
 #6 [10 points].
@@ -192,7 +194,7 @@ where _ is a Type value, such as Nat or Bool. What
 is the type of this function? Hint: #check (idType).
 Include the parentheses.
 
-Answer here:
+Answer here: Type → Type
 
 ANSWER: Type → Type
 @@@ -/
@@ -216,7 +218,7 @@ different Type values (Nat, String, Bool) for α.
 
 What's the type of this function?
 
-Answer:
+Answer: (alpha : Type) → alpha → alpha
 
 ANSWER: (α : Type) → α → α
 @@@ -/
@@ -242,7 +244,7 @@ inferred by Lean. Use *#check idPoly'* to see
 the answer to this question: What is the type
 of this function, written using → notation?
 
-Answer here:
+Answer here: (alpha : Type) → alpha → alpha
 
 ANSWER: (α : Type) → α → α
 
@@ -308,8 +310,7 @@ the second argument, which is to say *n2*.
 @@@ -/
 
 def fFalse :fBool
-| _, n2  => n2
-
+| _, n2 => n2
 
 /- @@@
 #14 [10 points]
