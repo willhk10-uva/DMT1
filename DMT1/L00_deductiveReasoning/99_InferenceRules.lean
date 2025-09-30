@@ -9,7 +9,6 @@ up with natural-deduction inference rules (a relation
 known as the Curry Howard Correspondence, as you know).
 
 <!-- toc -->
-
 @@@ -/
 
 /- @@@
