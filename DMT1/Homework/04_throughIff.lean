@@ -8,6 +8,11 @@ true, then it must be that X ↔ Y is as well.
 Call your theorem andImpEquiv.
 @@@ -/
 
+theorem andImpEquiv (X : Prop) (Y : Prop) (h : X ∧ Y) : X ↔ Y :=
+Iff.intro
+  (fun _ => h.right)
+  (fun _ => h.left)
+
 
 -- ANSWER
 
@@ -26,7 +31,7 @@ context,  and we will then show that, in that
 context, the conclusion must be true as well. So
 assume P ∧ Q is true. The conclusion to be proved
 is an equivalence. To prove an equivalence we need
-to prove both ...
+to prove both P → Q and Q → P
 @@@ -/
 
 
@@ -34,7 +39,7 @@ to prove both ...
 #3: Use axiom declarations to represent this world.
 
 - X is a proposition
-- Y is a propostion
+- Y is a proposition
 - X ∧ Y is true
 
 Once you've done that, in a #check command, apply
@@ -48,7 +53,11 @@ case (here involving X and Y) of the general claim.
 @@@ -/
 
 -- Answer
+axiom X : Prop
+axiom Y : Prop
+axiom h : (X ∧ Y)
 
+#check X ↔ Y
 
 
 /- @@@
@@ -93,6 +102,8 @@ definition.
 @@@ -/
 
 -- ANSWER
+theorem exFalsoK (K : Prop) : False → K :=
+ fun f => nomatch f
 
 
 /- @@@
@@ -100,7 +111,7 @@ Why is it safe to accept tihs definition? What do we
 know that's special about *exFalsoK* that makes it ok?
 
 ANSWER:
-
+The nomatch construct allows us to bail out because it's applied to a proof of false
 
 @@@ -/
 
@@ -112,7 +123,10 @@ P implies Q.
 @@@-/
 
 -- ANSWER
+theorem falseAndPImpQ ( P Q : Prop) : False ∧ P → Q :=
+fun h => False.elim h.left
 
+#check falseAndPImpQ
 
 /- @@@
 Write a short paragraph stating the proposition to be
@@ -120,6 +134,10 @@ proved and the proof of it -- in English.
 @@@ -/
 
 -- ANSWER
+/- the proposition to be proven is that if p and q are propositions,
+if false and p is true and holds true, then q holds true. We must first assume
+that false and P is true, meaning that false is true because p is true through
+elimination. However, false has no proofs, which means that Q will always be true.-/
 
 
 /- @@@
@@ -127,5 +145,12 @@ proved and the proof of it -- in English.
 Give both formal and English (natural language) proofs.
 @@@ -/
 
-
 -- ANSWER
+/- The nature of false means that there is no proof for the given entity.
+Therefore, if false is true, that means that it can imply that any other proposition
+is true, including false. -/
+
+theorem falseImpFalse : False → False :=
+  fun h => h
+
+#check falseImpFalse
