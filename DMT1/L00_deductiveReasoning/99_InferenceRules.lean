@@ -11,7 +11,7 @@ known as the Curry Howard Correspondence, as you know).
 ## ⊤ (True)
 
 - (⊤ intro) `True.intro : True`
-- (⊤ elim)  -- a proof of true is useless
+- (⊤ elim)  — a proof of true is useless
 
 ## ∧ (conjunction)
 
