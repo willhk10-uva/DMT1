@@ -76,3 +76,40 @@ should we be able to prove about *Wrong*?
 
 /- @@@
 @@@ -/
+
+def foo {P : Prop} {α : Type}: (P → False) → P → α :=
+(
+  fun pf =>
+  (
+    fun (p : P) => nomatch (pf p)
+  )
+)
+
+def bar {P : Prop} {α : Type} : ¬P → P → α
+| np, p => nomatch (np p)
+
+def noContra {P : Prop} : ¬ (P ∧ ¬ P)
+| h => nomatch h
+-- (
+--   let p := h.left
+--   let np := h.right
+--   _
+-- )
+
+-- theorem porqValid {P : Prop} : P ∨ ¬P :=
+--
+
+
+#check Classical.em
+
+-- provable?
+theorem notDistribOverAnd {P Q : Prop} : ¬(P ∧ Q) → (¬P ∨ ¬Q)
+| h  => ( Or.inl (fun (p : P) => _) )
+
+
+-- assuming proof of condition, (h : (¬P ∨ ¬Q)), shows ¬(P ∧ Q)
+-- corrected from end of class to include necessary fun h =>
+theorem notDistribOverAnd' {P Q : Prop} :  (¬P ∨ ¬Q) → ¬(P ∧ Q) :=
+fun h => match h with
+  | (Or.inl np)  => _
+  | (Or.inr nq) => _
