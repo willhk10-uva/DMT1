@@ -100,16 +100,41 @@ def noContra {P : Prop} : ¬ (P ∧ ¬ P)
 --
 
 
-#check Classical.em
-
--- provable?
+-- Is this variant of one of DeMorgan's logically valid (provable)?
 theorem notDistribOverAnd {P Q : Prop} : ¬(P ∧ Q) → (¬P ∨ ¬Q)
-| h  => ( Or.inl (fun (p : P) => _) )
+| h  =>     -- assume: ¬(P ∧ Q), (P ∧ Q) → False; show (¬P ∨ ¬Q)
+  (Or.inl
+    (fun (p : P) =>
+      (
+        _
+      )
+    )
+  )
 
 
--- assuming proof of condition, (h : (¬P ∨ ¬Q)), shows ¬(P ∧ Q)
--- corrected from end of class to include necessary fun h =>
+/- @@@
+Assume proof of condition, (h : (¬P ∨ ¬Q)), show ¬(P ∧ Q).
+-- premise is a disjunction, use Or.elim giving two cases:
+  - ¬P → ¬(P ∧ Q)
+  - ¬Q → ¬(P ∧ Q)
+
+In the first case with (np : ¬P), show ¬(P ∧ Q)
+
+- ¬(P ∧ Q) just means (P ∧ Q) → False
+- to prove ¬(P ∧ Q) is to prove (P ∧ Q) → False
+- so assume (h : P ∧ Q). Take it from there!
+
+In the second case with (nq : ¬Q), show ¬(P ∧ Q),
+well, you know what to do!
+@@@ -/
+
 theorem notDistribOverAnd' {P Q : Prop} :  (¬P ∨ ¬Q) → ¬(P ∧ Q) :=
 fun h => match h with
-  | (Or.inl np)  => _
+  | (Or.inl np)  => -- assume ¬P
+    (
+      fun pq =>   -- to prove ¬(P ∧ Q), assume it; then what?
+      (
+        _
+      )
+    )
   | (Or.inr nq) => _
