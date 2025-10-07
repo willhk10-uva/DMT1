@@ -99,7 +99,7 @@ def noContra {P : Prop} : ¬ (P ∧ ¬ P)
 -- theorem porqValid {P : Prop} : P ∨ ¬P :=
 --
 
-
+-- #1
 -- Is this variant of one of DeMorgan's logically valid (provable)?
 theorem notDistribOverAnd {P Q : Prop} : ¬(P ∧ Q) → (¬P ∨ ¬Q)
 | h  =>     -- assume: ¬(P ∧ Q), (P ∧ Q) → False; show (¬P ∨ ¬Q)
@@ -113,6 +113,8 @@ theorem notDistribOverAnd {P Q : Prop} : ¬(P ∧ Q) → (¬P ∨ ¬Q)
 
 
 /- @@@
+#2
+
 Assume proof of condition, (h : (¬P ∨ ¬Q)), show ¬(P ∧ Q).
 -- premise is a disjunction, use Or.elim giving two cases:
   - ¬P → ¬(P ∧ Q)
@@ -138,3 +140,20 @@ fun h => match h with
       )
     )
   | (Or.inr nq) => _
+
+/- @@@
+#3
+
+Formally state and prove the following proposition
+in Lean, if such proofs exist. Use the preceding
+statements and proof contructions as models should
+you need to resove any issues of mere Lean syntax.
+The English-language statement is that negation over
+disjunction is conjunction of negations. Remember:
+to prove ↔ you must have proofs of both the ← and →
+implications. You might start top down by applying
+the final Iff.intro _ _ to the two sub-proofs you'll
+need, leaving them as ( _ ), properly indented on
+their own lines. Then fill in the remaining proofs
+as required.
+-/
