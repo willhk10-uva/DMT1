@@ -110,7 +110,8 @@ theorem notDistribOverAnd {P Q : Prop} : ¬(P ∧ Q) → (¬P ∨ ¬Q)
       )
     )
   )
-  -- No, this is not provable. We cannot declare or.inl up front, because we still need to prove Q,
+  -- No, this is not provable. We cannot declare or.inl up front,
+  -- because we still need to prove Q,
   -- Which we cannot do in this situation.
 
 
