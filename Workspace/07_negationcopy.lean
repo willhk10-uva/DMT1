@@ -76,3 +76,38 @@ should we be able to prove about *Wrong*?
 
 /- @@@
 @@@ -/
+
+def foo {P : Prop} {α : Type} : (P → false) → P → α := /- If I assume P is any proposition and alpha is any type of object, and you have a proof that p is false and you have a proof of p, then you have a contradiction-/
+(
+  fun pf=>
+  (
+    fun (p : P) => nomatch (pf p)
+
+  )
+)
+
+def bar {P : Prop} {α : Type} : ¬P → P → α
+| np, p => nomatch (np p)
+
+
+def noContra {P : Prop} : ¬(P ∧ ¬P)
+| h =>
+(
+  let p := h.left
+  let np := h.right
+  nomatch (np p)
+)
+
+def noContra' {P : Prop} : ¬(P ∧ ¬P)
+| h => nomatch h
+
+/-theorem proqValid{P : Prop} : P ∨ ¬P :=
+_ -/
+/- unprovable without stronger assumptions-/
+
+theorem notDistribOverAnd {P Q: Prop} : ¬(P ∧ Q) → (¬P∨¬Q)
+| h => (Or.inl (fun (p : P) => _))
+
+theorem notDistribOverAnd' {P Q: Prop} : (¬P∨Q) → ¬(P ∧ Q)
+| (Or.inl np) => _
+| (or.inr np) => _
