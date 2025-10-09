@@ -110,6 +110,8 @@ theorem notDistribOverAnd {P Q : Prop} : ¬(P ∧ Q) → (¬P ∨ ¬Q)
       )
     )
   )
+  -- No, this is not provable. We cannot declare or.inl up front, because we still need to prove Q,
+  -- Which we cannot do in this situation.
 
 
 /- @@@
@@ -136,10 +138,13 @@ fun h => match h with
     (
       fun pq =>   -- to prove ¬(P ∧ Q), assume it; then what?
       (
-        _
+        np pq.left
       )
     )
-  | (Or.inr nq) => _
+  | (Or.inr nq) =>
+    (
+      fun pq => nq pq.right
+    )
 
 /- @@@
 #3
@@ -157,3 +162,28 @@ need, leaving them as ( _ ), properly indented on
 their own lines. Then fill in the remaining proofs
 as required.
 -/
+
+theorem DemorganNotOr {P Q : Prop} : ¬ (P ∨ Q) ↔ (¬ P ∧ ¬ Q) := Iff.intro
+  -- assume ¬(P ∨ Q), prove (¬P ∧ ¬Q)
+  (
+    fun h =>
+    And.intro
+      (
+        fun p => h (Or.inl p)
+      )
+      (
+        fun q => h (Or.inr q)
+      )
+  )
+  -- assume (¬P ∧ ¬Q) prove ¬(P ∨ Q)
+  (
+    fun h =>
+    fun pq =>
+      Or.elim pq
+        (
+          fun p => h.left p
+        )
+        (
+          fun q => h.right q
+        )
+  )
