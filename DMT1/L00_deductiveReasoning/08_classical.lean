@@ -175,15 +175,19 @@ capability to take much more interesting
 shots than you ever would have before. Here
 what then skittered across my screen.
 
-This material has been state hundreds if not
-thousands of times in the digital record, or
-more. Than you to the many original sources.
+This material has been written about hundreds
+if not thousands of times in the digital record,
+so we can at least reasonably hope that what we
+get back will stand a good chance of being not
+too wrong.
 
-The Robotic response is what I would have
+Thank you to the many original sources.
+
+The Robotic response is basically what I'd have
 written. No outsourcing of thinking. I knew
-exactly what I wanted and was able to express'
-it fluently. Expertise still matters. In my
-view, it matters even more.
+exactly what I wanted and was able to express
+it fluently. Expertise still matters. One can
+reasonably believe it matters even more.
 
 GPT Response:
 
@@ -217,7 +221,7 @@ It's a monstrous theorem because:
 - You cannot actually describe or construct them in the real world
 - It's purely an existence proof: AC guarantees such decompositions exist, but provides no algorithm to find them
 
-## The Constructivist Objected
+## The Constructivist Objection
 
 Mathematicians who reject AC (like constructivists and some intuitionists) don't accept this paradox and therefore reject the axiom of choice. Without it, you can actually prove that such "paradoxical decompositions are impossible for measurable sets. They'd argue: "If you can't construct these pieces explicitly, why should we believe they exist?"
 
@@ -241,11 +245,37 @@ END OF (lightly edited) GPT RESPONSE.
 
 
 /- @@@
+## Not All DeMorgan Laws Are THeorems Constructively
+As another example of a theorem in Boolean algebra,
+propositional logic, and classical predicate logic,
+both of DeMorgan's famous theorems are demonstrably
+valid.
+
+- #1: Not Over Or Iff And Over Nots: ¬(P ∧ Q) ↔ (¬P ∨ ¬Q)*
+- #2: Not Over And Iff Or Over Nots: ¬(P ∨ Q) ↔ ¬P ∧ ¬Q
+
+Each of the two theorems is an equivalence, which
+means (constructively) that a proof of it gives
+you proof/truth of the implication in each direction.
+So if you have a proof for one direction, then you
+can derive  a proof for the other. So really we
+have four claims.
+
+- #1A: ¬(P ∧ Q) → (¬P ∨ ¬Q)
+- #1B (¬P ∨ ¬Q) → ¬(P ∧ Q)
+- #2A: ¬(P ∨ Q) →  ¬P ∧ ¬Q
+- #2B: ¬P ∧ ¬Q → ¬(P ∨ Q)
+
+We'll now see which of these propositions are valid
+(have proofs) constructively.
+
 ## DeMorgan #1: Not Over Or ↔ And Over Nots
 
--- Both directions are constructively valid!
+The proposition is ¬(P ∧ Q) ↔ (¬P ∨ ¬Q)*. It's
+valid because both directions are constructively
+valid.
 
-The "Easy" DeMorgan Law: ¬(P ∨ Q) ↔ (¬P ∧ ¬Q)
+### Forward Direction
 @@@ -/
 
 theorem demorgan_or_to_and {P Q : Prop} : ¬(P ∨ Q) → (¬P ∧ ¬Q) :=
@@ -269,6 +299,10 @@ theorem demorgan_or_to_and {P Q : Prop} : ¬(P ∨ Q) → (¬P ∧ ¬Q) :=
   )
 --  fun h => ⟨fun hp => h (Or.inl hp), fun hq => h (Or.inr hq)⟩
 
+/- @@@
+### Reverse Directin
+@@@-/
+
 theorem demorgan_and_to_or {P Q : Prop} : (¬P ∧ ¬Q) → ¬(P ∨ Q) :=
 (
   fun h =>
@@ -285,13 +319,25 @@ theorem demorgan_and_to_or {P Q : Prop} : (¬P ∧ ¬Q) → ¬(P ∨ Q) :=
 )
 --  fun ⟨hnp, hnq⟩ hpq => hpq.elim hnp hnq
 
+/- @@@
+### Equivalence: ¬(P ∨ Q) ↔ (¬P ∧ ¬Q)
+@@@ -/
 theorem demorgan_or_iff {P Q : Prop} : ¬(P ∨ Q) ↔ (¬P ∧ ¬Q) :=
 (
-  Iff.intro demorgan_or_to_and demorgan_and_to_or
+  Iff.intro
+    demorgan_or_to_and
+    demorgan_and_to_or
 )
 --  ⟨demorgan_or_to_and, demorgan_and_to_or⟩
 
+/-@@@
+## #2: The Hard DeMorgan Law
 
+¬(P ∧ Q) vs (¬P ∨ ¬Q)
+
+### Forward Direction
+
+@@@ -/
 theorem demorgan_or_neg_to_neg_and {P Q : Prop} : (¬P ∨ ¬Q) → ¬(P ∧ Q) :=
 (
   fun h =>
@@ -308,7 +354,7 @@ theorem demorgan_or_neg_to_neg_and {P Q : Prop} : (¬P ∨ ¬Q) → ¬(P ∧ Q) 
         )
       )
       (
-        _
+        sorry   -- You can finish this
       )
     )
   )
@@ -316,12 +362,12 @@ theorem demorgan_or_neg_to_neg_and {P Q : Prop} : (¬P ∨ ¬Q) → ¬(P ∧ Q) 
 --  fun h ⟨hp, hq⟩ => h.elim (fun hnp => hnp hp) (fun hnq => hnq hq)
 
 
-theorem foo { P Q : Prop } : ¬(P ∧ Q) → (¬P ∨ ¬Q) :=
+theorem not_a_theorem { P Q : Prop } : ¬(P ∧ Q) → (¬P ∨ ¬Q) :=
 fun h =>
 (
   Or.inl
   (
-    fun p => _   -- Understand this proof state!
+    fun p => _   -- Understand this proof state! Cannot finish proof.
   )
 )
 
@@ -346,7 +392,6 @@ To prove ¬(P ∧ Q) → (¬P ∨ ¬Q) constructively, we would need to decide w
 - P is false (left disjunct), or
 - Q is false (right disjunct), or
 - both are false
-
 
 @@@ -/
 

@@ -58,3 +58,7 @@ def et2 (α : Type): Empty → α :=
 
 def exfalso (P : Prop): False → P :=
   fun e : False => nomatch e
+
+#check Not
+
+def ete : Empty → Empty := fun u => nomatch u
