@@ -361,33 +361,27 @@ theorem demorgan_or_neg_to_neg_and {P Q : Prop} : (¬P ∨ ¬Q) → ¬(P ∧ Q) 
 )
 --  fun h ⟨hp, hq⟩ => h.elim (fun hnp => hnp hp) (fun hnq => hnq hq)
 
-
-theorem not_a_theorem { P Q : Prop } : ¬(P ∧ Q) → (¬P ∨ ¬Q) :=
-fun h =>
-(
-  Or.inl
-  (
-    fun p => _   -- Understand this proof state! Cannot finish proof.
-  )
-)
-
-theorem negElim {P : Prop} : ¬¬P → P :=
-(
-  fun h =>
-  (
-    _             -- A (symmetrical) one's no better!
-  )
-)
+-- DeMorgan #2, Reverse Direction (This One's Trouble)
+-- Commented out to eliminate failed build problems (details)
+-- theorem not_a_theorem { P Q : Prop } : ¬(P ∧ Q) → (¬P ∨ ¬Q) :=
+-- fun h =>
+-- (
+--   Or.inl
+--   (
+--     fun p => _   -- Understand this proof state! Cannot finish proof.
+--   )
+-- )
 
 /- @@@
+One direction is constructively valid. The other direction is not. In
+constructive predicate logic¬(P ∧ Q) → (¬P ∨ ¬Q) is not a theorem. We
+can't deduce its truth from the axioms of the logic we've been using
+for most of the semester.
 
-## The "Hard" DeMorgan Law: ¬(P ∧ Q) vs (¬P ∨ ¬Q) @@@
-
-One direction is constructively valid. The other direction is not. In constructive predicate logic¬(P ∧ Q) → (¬P ∨ ¬Q) is not a theorem. We cannot deduce its truth from the axioms of the logic we've now been learning for most of the semester.
-
-## Why It Fails Constructively
-
-To prove ¬(P ∧ Q) → (¬P ∨ ¬Q) constructively, we would need to decide which disjunct holds. But from ¬(P ∧ Q) alone, we only know that P and Q can't both be true simultaneously. We don't have enough data to determine whether:
+To prove ¬(P ∧ Q) → (¬P ∨ ¬Q) constructively, we would need to decide
+which disjunct holds. But from ¬(P ∧ Q) alone, we only know that P and
+Q can't both be true simultaneously. We don't have enough information
+to determine whether:
 
 - P is false (left disjunct), or
 - Q is false (right disjunct), or
