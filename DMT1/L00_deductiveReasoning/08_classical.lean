@@ -333,32 +333,21 @@ theorem negElim {P : Prop} : ¬¬P → P :=
   )
 )
 
-
-
-
-
-
 /- @@@
 
 ## The "Hard" DeMorgan Law: ¬(P ∧ Q) vs (¬P ∨ ¬Q) @@@
 
-One direction is constructively valid. The other direction
-is not. In constructive predicate logic¬(P ∧ Q) → (¬P ∨ ¬Q)
-is not a theorem. We cannot deduce its truth from the axioms
-of logic we've been assuming nearly all semester.
+One direction is constructively valid. The other direction is not. In constructive predicate logic¬(P ∧ Q) → (¬P ∨ ¬Q) is not a theorem. We cannot deduce its truth from the axioms of the logic we've now been learning for most of the semester.
 
 ## Why It Fails Constructively
 
--- To prove ¬(P ∧ Q) → (¬P ∨ ¬Q) constructively, we would need
--- to decide which disjunct holds. But from ¬(P ∧ Q) alone,
--- we only know that P and Q can't both be true simultaneously.
--- We don't have enough information to determine whether:
---   - P is false (left disjunct), or
---   - Q is false (right disjunct), or
---   - both are false
+To prove ¬(P ∧ Q) → (¬P ∨ ¬Q) constructively, we would need to decide which disjunct holds. But from ¬(P ∧ Q) alone, we only know that P and Q can't both be true simultaneously. We don't have enough data to determine whether:
 
--- This is fundamentally a non-constructive step requiring
--- the law of excluded middle.
+- P is false (left disjunct), or
+- Q is false (right disjunct), or
+- both are false
+
+
 @@@ -/
 
 /- @@@
