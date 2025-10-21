@@ -66,10 +66,10 @@ the proof state at the point where you need to finish
 the proof.
 @@@ -/
 
-example (K Z : Prop) (h : K → False) (k : K) : Z :=
-(
-  _
-)
+-- example (K Z : Prop) (h : K → False) (k : K) : Z :=
+-- (
+--   _
+-- )
 
 
 /- @@@
@@ -102,7 +102,7 @@ arbitrary propositions, then (P ∧ Q) ∧ (Q → False) → P
 #8 Prove the following: (P ∨ Q) ∧ (Q → False) → P
 @@@ -/
 
-example (P Q : Prop) : (P ∨ Q) ∧ (Q → False) → P :=
-(
-  _
-)
+-- example (P Q : Prop) : (P ∨ Q) ∧ (Q → False) → P :=
+-- (
+--   _
+-- )
