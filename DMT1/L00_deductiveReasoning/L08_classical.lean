@@ -55,10 +55,18 @@ Let *P* be any proposition.
 axiom P : Prop
 
 /- @@@
-Now prove P ∨ ¬P.
+Assuming only that P is a proposition, can we
+prove P ∨ ¬P?
 @@@ -/
 
-example : P ∨ ¬P :=
+-- UNCOMMENT TO EXPLOER PROOF ATTEMPT
+-- example : P ∨ ¬P :=
+--   Or.inl
+--   (
+--     -- P is some Prop. We have no proof of it.
+--     -- That's the end of the line; quit
+--     _
+--   )
 
 /- @@@
 Given only this assumption, can we prove
@@ -81,12 +89,6 @@ of Q but we don't have one. Let's go left
 one more step. Then that's it. Stuck!
 @@@ -/
 
-  Or.inl
-  (
-    -- P is some Prop. We have no proof of it.
-    -- That's the end of the line; quit
-    _
-  )
 
 /- @@@
 ### The Law (Axiom) of the Excluded Middle
