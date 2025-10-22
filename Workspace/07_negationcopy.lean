@@ -111,3 +111,6 @@ theorem notDistribOverAnd {P Q: Prop} : ¬(P ∧ Q) → (¬P∨¬Q)
 theorem notDistribOverAnd' {P Q: Prop} : (¬P∨Q) → ¬(P ∧ Q)
 | (Or.inl np) => _
 | (or.inr np) => _
+
+#check noContra
+∀
