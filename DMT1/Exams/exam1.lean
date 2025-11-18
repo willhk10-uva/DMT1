@@ -58,15 +58,17 @@ propositional logic, by writing out a truth table. In most cases
 here you can probably figure out the right answer without one, so
 truth tables are NOT required here.
 
-- A. (P → Q) → (Q → P)
+- A. (P → Q) → (Q → P) - NOT VALID
+Counterexample: [[P]] = False ∧ [[Q]] = True
 
-- B. (¬Q → ¬P) → (P → Q)
+- B. (¬Q → ¬P) → (P → Q) - VALID
 
-- C. ¬(P ∧ Q) → ¬Q ∨ ¬P
+- C. ¬(P ∧ Q) → ¬Q ∨ ¬P - VALID
 
-- D. (P ∧ Q) → (P ∨ Q)
+- D. (P ∧ Q) → (P ∨ Q) - VALID
 
-- E. (P ∨ Q) → (P ∧ Q)
+- E. (P ∨ Q) → (P ∧ Q) - NOT VALID
+Counterexample: [[P]] = False ∧ [[Q]] = True
 
 
 ## 2. Proof-Based Reasoning [20 points each = 60 points]
@@ -76,24 +78,31 @@ in Lean. Replace *sorry* with the remainder of a proof
 that Lean accepts.
 @@@ -/
 
-example (P Q : Prop) : (P ∨ Q) → (¬P → ¬Q) → False :=
+example (P Q : Prop) : (P ∨ Q) → (¬P → ¬Q) → False := /- Unable to prove: Counterexample when P is True and Q is false, because the first P ∨ Q holds but False does not-/
 (
   fun porq np2nq =>
   (
+    fun porq : P ∨ Q =>
+    match porq with
+    | Or.inl => _
+    | Or,inr => _
     sorry
   )
 )
 
 example (P Q : Prop) : P → ¬P → Q :=
 (
-  sorry
+ fun p np => False.elim (np p)
 )
 
 
-example (P Q R : Prop) : (P ∨ Q) ∧ (¬P → Q) :=
+example (P Q R : Prop) : (P ∨ Q) ∧ (¬P → Q) := /- Unable to prove without making assumptions. For example, if P is false and Q is false, fails. we know nothing about R-/
 (
-  sorry
+  fun pq : P ∨ Q =>
+    fun pqr : P =>
+    sorry
 )
+
 
 
 /- @@@
@@ -125,11 +134,12 @@ Iff.intro
     match pornp with
     | Or.inl p =>
       match qornq with
-      | Or.inl q => sorry
+      | Or.inl q => Or.inr q
       | Or.inr nq =>
-        let q : Q := sorry
-        False.elim sorry
-    | Or.inr np => sorry
+        let q : Q :=
+        False.elim (nq (h p))
+        Or.inr q
+    | Or.inr np => Or.inl np
 )
 
 -- Backward: (¬P ∨ Q) → (P → Q)   [10 points]
@@ -137,8 +147,8 @@ Iff.intro
   fun nporq =>
   (
     match nporq with
-    | Or.inl np => fun p => sorry
-    | Or.inr q => sorry
+    | Or.inl np => fun p => False.elim (np p)
+    | Or.inr q => fun p => q
   )
 )
 
@@ -154,6 +164,12 @@ P must be false.
 @@@ -/
 
 -- Answer here:
+theorem ec1 (P Q : Prop) : (P → Q) ∧ (P → ¬Q) → P → false :=
+  fun pq =>
+  (
+    sorry
+  )
+
 
 /- @@@
 Now try a constructive proof of this proposition.
